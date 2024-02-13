@@ -54,7 +54,9 @@ export default function Navbar (): JSX.Element {
                             <LogIn size={18} />
                             Login
                         </Button>
-                        <Button variant="primary" size={'sm'} className="">Sign Up</Button>
+                        <Button variant="primary" size={'sm'} className="">
+                            Get Started
+                        </Button>
                     </div>  
                 </div>
 

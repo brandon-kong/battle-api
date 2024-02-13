@@ -7,7 +7,8 @@
 
     /* Sizes */
     --content-width: 1440px;
-    --content-width-sm: 800px;
+    --content-width-sm: 860px;
+
     --content-width-md: 1000px;
     --content-width-lg: 1400px;
 
@@ -18,7 +19,7 @@
 
     /* Shadow */
 
-    --shadow: box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    --shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 body {

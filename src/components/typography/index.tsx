@@ -10,6 +10,10 @@ type TypographyProps = BaseProps & {
 };
 
 const baseVariantClass = {
+    "h0": {
+        className: "font-sans text-7xl font-semibold tracking-tight leading-tight",
+        type: "h1"
+    },
     "h1": {
         className: "font-sans text-6xl font-semibold leading-tight tracking-normal",
         type: "h1"
@@ -32,6 +36,10 @@ const baseVariantClass = {
     },
     "h6": {
         className: "font-sans text-base font-bold",
+        type: "h6"
+    },
+    "subtitle": {
+        className: "font-sans text-xs font-medium tracking-widest leading-normal uppercase text-gray-400",
         type: "h6"
     },
     "p": {

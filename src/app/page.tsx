@@ -16,7 +16,7 @@ export default function Home() {
                     className={'space-y-4 max-w-xl'}
                     >
                         <Typography variant="h1">
-                            Battle-testing your application has never been <span className={'text-blue-600'}>easier.</span>
+                            battle-testing your application has never been <span className={'text-blue-600'}>easier.</span>
                         </Typography>
 
                         <div className={'flex flex-col space-y-6'}>

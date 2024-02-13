@@ -32,6 +32,7 @@ const config: Config = {
       maxWidth: {
         "1440": "1440px",
         "content": "var(--content-width)",
+        "content-sm": "var(--content-width-sm)",
       },
       dropShadow: {
         "DEFAULT": "var(--shadow)",
