@@ -25,7 +25,7 @@ const navItems = [
 
 export default function Navbar (): JSX.Element {
     return (
-        <nav className="bg-transparent absolute top-0 left-0 w-full flex items-center place-content-center h-navbar">
+        <nav className="bg-transparent absolute top-0 left-0 w-full flex items-center place-content-center h-navbar px-8">
             <div className={'w-full max-w-content flex items-center justify-between'}>
 
                 <div className="flex items-center space-x-4">
