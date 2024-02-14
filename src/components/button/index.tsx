@@ -32,6 +32,10 @@ const baseVariantClass = {
         className: "bg-transparent text-black hover:bg-blue-100",
         type: "button"
     },
+    "ghost-gray": {
+        className: "bg-transparent text-gray-500 hover:bg-gray-100",
+        type: "button"
+    },
     "danger": {
         className: "bg-red-500 hover:bg-red-600",
         type: "button"
