@@ -13,7 +13,7 @@ const config: Config = {
     },
     screens: {
       "sm": "640px",
-      "md": "768px",
+      "md": "808px",
       "lg": "1024px",
       "xl": "1280px",
       "2xl": "1536px",
@@ -35,11 +35,16 @@ const config: Config = {
       spacing: {
         "navbar": "var(--navbar-height)",
         "navbar-2x": "calc(var(--navbar-height) * 2)",
+
+        "content-padding-x": "var(--content-padding-x)",
+        "content-padding-y": "var(--content-padding-y)",
+        "content-padding": "var(--content-padding-y) var(--content-padding-x)",
       },
       maxWidth: {
         "1440": "1440px",
         "content": "var(--content-width)",
         "content-sm": "var(--content-width-sm)",
+        "content-xs": "var(--content-width-xs)",
       },
       dropShadow: {
         "DEFAULT": "var(--shadow)",

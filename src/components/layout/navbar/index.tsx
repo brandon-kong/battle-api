@@ -2,16 +2,13 @@ import { Button, Typography } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 
-import { LogIn } from "react-feather";
+import { LogIn, Menu } from "react-feather";
 
 const navItems = [
     {
-        title: 'Home',
-        href: '/'
-    },
-    {
         title: 'Features',
-        href: '/features'
+        href: '/features',
+        className: 'hidden lg:flex'
     },
     {
         title: 'Pricing',
@@ -19,14 +16,15 @@ const navItems = [
     },
     {
         title: 'Download',
-        href: '/download'
+        href: '/download',
+        className: 'hidden lg:flex'
     }
 ]
 
 export default function Navbar (): JSX.Element {
     return (
-        <nav className="bg-transparent absolute top-0 left-0 w-full flex items-center place-content-center h-navbar">
-            <div className={'w-full max-w-content flex items-center justify-between'}>
+        <nav className="bg-transparent absolute top-0 left-0 w-full flex items-center place-content-center h-navbar px-content-padding-x">
+            <div className={'w-full max-w-content-xs md:max-w-content flex items-center justify-between'}>
 
                 <div className="flex items-center space-x-4">
                     <Link href="/" className="flex items-center gap-4">
@@ -40,11 +38,11 @@ export default function Navbar (): JSX.Element {
                     </Link>
                 </div>
 
-                <div className={'flex space-x-4'}>
+                <div className={'space-x-4 hidden md:flex'}>
 
                     <div className={'flex items-center space-x-0'}>
                         {navItems.map((item, index) => (
-                            <Button variant={'ghost'} size={'sm'} href={item.href} key={index}>
+                            <Button variant={'ghost'} size={'sm'} href={item.href} className={item.className} key={index}>
                                 {item.title}
                             </Button>
                         ))}
@@ -58,6 +56,12 @@ export default function Navbar (): JSX.Element {
                             Get Started
                         </Button>
                     </div>  
+                </div>
+
+                <div className={'md:hidden'}>
+                    <Button variant={'ghost'} size={'icon'}>
+                        <Menu size={18} />
+                    </Button>
                 </div>
 
 

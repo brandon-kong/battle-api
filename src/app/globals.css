@@ -8,6 +8,7 @@
     /* Sizes */
     --content-width: 1440px;
     --content-width-sm: 860px;
+    --content-width-xs: 460px;
 
     --content-width-md: 1000px;
     --content-width-lg: 1400px;
@@ -17,9 +18,20 @@
 
     --border-radius: 999rem;
 
+    /* Padding */
+    --content-padding-x: 1.5rem;
+    --content-padding-y: 1.5rem;
+
     /* Shadow */
 
     --shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+@media screen and (min-width: 808px) {
+    :root {
+        --content-padding-x: 2rem;
+        --content-padding-y: 2rem;
+    }
 }
 
 body {

@@ -48,6 +48,7 @@ const sizeClass = {
     "sm": "h-10 px-6",
     "md": "h-12 px-8",
     "lg": "text-lg h-12 px-8",
+    "icon": "h-10 w-10 p-2"
 }
 
 type Size = keyof typeof sizeClass;

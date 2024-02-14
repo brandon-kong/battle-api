@@ -15,7 +15,7 @@ const baseVariantClass = {
         type: "h1"
     },
     "h1": {
-        className: "font-sans text-6xl font-semibold leading-tight tracking-normal",
+        className: "font-sans text-5xl xl:text-6xl font-semibold leading-tight tracking-normal",
         type: "h1"
     },
     "h2": {
@@ -55,7 +55,7 @@ const baseVariantClass = {
         type: "p"
     },
     "p-large": {
-        className: "font-mono text-xl tracking-tight leading-normal",
+        className: "font-mono text-md xl:text-xl tracking-tight leading-normal",
         type: "p"
     },
     "span": {
