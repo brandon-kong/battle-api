@@ -41,7 +41,7 @@ const baseVariantClass = {
         type: "button"
     },
     "link": {
-        className: "px-2 bg-transparent underline underline-offset-4 text-blue-500 hover:text-blue-600",
+        className: "p-0 h-fit bg-transparent underline underline-offset-4 text-blue-500 hover:text-blue-600",
         type: "a"
     
     }
@@ -50,7 +50,7 @@ const baseVariantClass = {
 const sizeClass = {
     "xs": "h-8 px-4",
     "sm": "h-10 px-6",
-    "md": "h-12 px-8",
+    "md": "h-11 px-8",
     "lg": "text-lg h-12 px-8",
     "icon": "h-10 w-10 p-2"
 }

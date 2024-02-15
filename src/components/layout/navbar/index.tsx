@@ -35,7 +35,7 @@ export default function Navbar (): JSX.Element {
                         width={50}
                         height={50}
                         />
-                        <Typography variant={'h3'}>battle api</Typography>
+                        <Typography variant={'h4'}>battle api</Typography>
                     </Link>
 
                     <Popover>
@@ -46,7 +46,7 @@ export default function Navbar (): JSX.Element {
                             </Button>
                         </PopoverTrigger>
                         
-                        <PopoverContent align={'start'} sideOffset={8} className={'w-64'}>
+                        <PopoverContent align={'start'} sideOffset={8} className={'w-max'}>
                             <div className={'flex flex-col gap-2'}>
                                 <Button variant={'ghost-gray'} size={'sm'} href={'#'} 
                                 className={'rounded-lg text-blue-500 justify-start'}
@@ -106,7 +106,7 @@ export default function Navbar (): JSX.Element {
                         ))}
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Button variant="outline" size={'sm'} className="">
+                        <Button href={'/login'} variant="outline" size={'sm'} className="">
                             <LogIn size={18} />
                             Login
                         </Button>

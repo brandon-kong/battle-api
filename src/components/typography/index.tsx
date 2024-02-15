@@ -19,15 +19,15 @@ const baseVariantClass = {
         type: "h1"
     },
     "h2": {
-        className: "font-sans text-3xl font-bold",
+        className: "font-sans text-5xl font-semibold leading-tight tracking-normal",
         type: "h2"
     },
     "h3": {
-        className: "font-sans text-2xl font-semibold tracking-tight leading-normal",
+        className: "font-sans text-4xl font-semibold tracking-tight leading-normal",
         type: "h3"
     },
     "h4": {
-        className: "font-sans text-xl font-semibold tracking-tight leading-normal",
+        className: "font-sans text-2xl font-semibold tracking-tight leading-normal",
         type: "h4"
     },
     "h5": {
