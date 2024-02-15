@@ -1,3 +1,7 @@
+'use client';
+
+import React, { forwardRef } from "react";
+
 import cn from "@/util/cn";
 import Link from "next/link";
 import { Omit } from "utility-types";
@@ -8,6 +12,7 @@ type InputProps = BaseProps & {
     variant?: Variant;
     href?: string;
     size?: Size;
+    ref?: any;
 };
 
 const baseClass = "placeholder:text-gray-700 px-6 flex gap-2 items-center justify-center font-mono text-sm text-black font-normal py-2 rounded transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50";
@@ -35,12 +40,13 @@ type Size = keyof typeof sizeClass;
 
 type Variant = keyof typeof baseVariantClass;
 
-export const Input = (props: InputProps) => {
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const { variant = 'solid', size = 'md', href, children, className, ...rest }: InputProps = props;
     const Component = baseVariantClass[variant].type as keyof JSX.IntrinsicElements | React.ComponentType<any>;
     const variantClass = baseVariantClass[variant].className;
     const sizeVariantClass = sizeClass[size];
     
+    console.log(rest)
     const classNames = cn(
         baseClass,
         sizeVariantClass,
@@ -62,6 +68,25 @@ export const Input = (props: InputProps) => {
             {children}
         </Component>
     )
+});
+
+Input.displayName = 'Input';
+
+type FormInputProps = InputProps & {
+    register?: any;
+    name?: string;
 };
 
+const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>((props, ref) => {
+    const { register, name, ...rest }: FormInputProps = props;
+    
+    return (
+        <Input {...rest} ref={register} name={name} />
+    )
+});
+
+FormInput.displayName = 'FormInput';
+
 export default Input;
+
+export { FormInput };

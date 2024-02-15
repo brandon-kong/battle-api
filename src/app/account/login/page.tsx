@@ -1,11 +1,42 @@
-import { Button, Input, Typography } from "@/components";
-import Image from "next/image";
+'use client';
+
+import { Button, Typography, FormInput, Input } from "@/components";
+import { signIn } from "next-auth/react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+type FormValues = {
+    email: string;
+    password: string;
+};
 
 export default function Login() {
+    const { register, handleSubmit, formState: { errors } } = 
+    useForm<FormValues>();
+    
+    const onSubmit: SubmitHandler<FormValues> = async (e) => {
+        console.log('submitted');
+
+        const res = await signIn('email-password', {
+            email: e.email,
+            password: e.password,
+            callbackUrl: `${window.location.origin}/dashboard`,
+            redirect: false,
+        })
+
+        alert(JSON.stringify(res));
+
+        if (!res?.ok) {
+            console.error('Failed to sign in:', res?.error);
+        }
+        else {
+            alert('Logged in!');
+        }
+    };
+
     return (
         <main className="flex place-content-center items-center">
             <div
-            className={'max-w-[450px] px-content-padding-x xl:px-0 h-screen w-full flex flex-col place-content-center'}
+            className={'max-w-[430px] px-content-padding-x md:px-0 h-screen w-full flex flex-col place-content-center pt-navbar'}
             >
                 
                 <div
@@ -19,19 +50,19 @@ export default function Login() {
                         Welcome back! Please login to your account.
                     </Typography>
 
-                    <form className={'flex flex-col gap-4 mt-8'}>
-                        <Input variant={'solid'} placeholder={'Email'} />
-                        <Input variant={'solid'} placeholder={'Password'} type={'password'} />
+                    <form onSubmit={handleSubmit(onSubmit)} className={'flex flex-col gap-4 mt-8'}>
+                        <Input variant={'solid'} placeholder={'Email'} {...register("email")} />
+                        <Input variant={'solid'} placeholder={'Password'} type={'password'} {...register("password")} />
                         <Button variant="primary">Login</Button>
                         
                         <div
-                        className={'flex items-center justify-start gap-1 mb-2'}
+                        className={'flex items-center justify-center gap-1 mb-2'}
                         >
                             <Typography variant={'p-small'} className={'text-gray-600'}>
                                 Don&apos;t have an account? 
 
                             </Typography>                                
-                            <Button variant={'link'} href={'#'} className={'ml-1'}>
+                            <Button variant={'link'} href={'/account/create'} className={'ml-1'}>
                                 Sign up
                             </Button>
                         </div>

@@ -25,7 +25,7 @@ const baseVariantClass = {
         type: "button"
     },
     "outline": {
-        className: "bg-transparent text-black hover:bg-white border border-gray-500",
+        className: "bg-transparent text-black hover:bg-gray-100 border border-gray-500",
         type: "button"
     },
     "ghost": {

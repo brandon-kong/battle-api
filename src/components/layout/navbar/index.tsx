@@ -34,6 +34,7 @@ export default function Navbar (): JSX.Element {
                         alt={'Logo'}
                         width={50}
                         height={50}
+                        className={'h-auto aspect-auto'}
                         />
                         <Typography variant={'h4'}>battle api</Typography>
                     </Link>
@@ -106,7 +107,7 @@ export default function Navbar (): JSX.Element {
                         ))}
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Button href={'/login'} variant="outline" size={'sm'} className="">
+                        <Button href={'/account/login'} variant="outline" size={'sm'} className="">
                             <LogIn size={18} />
                             Login
                         </Button>
