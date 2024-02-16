@@ -1,9 +1,10 @@
 'use client';
 
-import { Button, Typography, FormInput, Input } from "@/components";
-import { signIn } from "next-auth/react";
+import { Button, Typography, Input } from "@/components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+
+import { useAuth } from "@/components/providers/auth-provider";
 
 type FormValues = {
     email: string;
@@ -11,6 +12,7 @@ type FormValues = {
 };
 
 export default function Login() {
+    const { signIn } = useAuth();
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = 
     useForm<FormValues>();
@@ -27,10 +29,7 @@ export default function Login() {
         if (!res?.ok) {
         }
         else {
-<<<<<<< HEAD
-=======
             router.push('/');
->>>>>>> 4ef5db952db8046f40057d3e9e5d5b701e25638b
         }
     };
 

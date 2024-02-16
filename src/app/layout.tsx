@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components";
 
 import { GeneralSans } from "@/util/fonts";
+import QueryProvider from "@/components/providers/query-provider";
+import { AuthProvider } from "@/components/providers/auth-provider";
 
 const inter = Inter({ 
     subsets: ["latin"],
@@ -25,8 +27,12 @@ export default function RootLayout({
   return (
         <html lang="en">
             <body className={`${inter.variable} ${GeneralSans.variable}`}>
-                <Navbar />
-                {children}
+                <QueryProvider>
+                    <AuthProvider>
+                        <Navbar />
+                        {children}
+                    </AuthProvider>
+                </QueryProvider>
             </body>
         </html>
   );    

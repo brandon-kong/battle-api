@@ -1,7 +1,11 @@
+'use client';
+
 import { Button, Typography } from "@/components";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 import Image from "next/image";
 import Link from "next/link";
+
+import { useAuth } from "@/components/providers/auth-provider";
 
 import { ChevronDown, LogIn, Menu, Plus, Tv } from "react-feather";
 
@@ -23,6 +27,8 @@ const navItems = [
 ]
 
 export default function Navbar (): JSX.Element {
+    const { isAuthenticated } = useAuth();
+
     return (
         <nav className="bg-transparent absolute top-0 left-0 w-full flex items-center place-content-center h-navbar px-content-padding-x">
             <div className={'w-full max-w-content-xs md:max-w-content flex items-center justify-between'}>
@@ -106,6 +112,9 @@ export default function Navbar (): JSX.Element {
                             </Button>
                         ))}
                     </div>
+
+                    {!isAuthenticated && (
+                        
                     <div className="flex items-center space-x-4">
                         <Button href={'/account/login'} variant="outline" size={'sm'} className="">
                             <LogIn size={18} />
@@ -114,7 +123,19 @@ export default function Navbar (): JSX.Element {
                         <Button variant="primary" size={'sm'} className="">
                             Get Started
                         </Button>
-                    </div>  
+                    </div> 
+                    )}
+
+                    {isAuthenticated && (
+                        <div className="flex items-center space-x-4">
+                            <Button variant="outline" size={'sm'} className="">
+                                Dashboard
+                            </Button>
+                            <Button variant="primary" size={'sm'} className="">
+                                Logout
+                            </Button>
+                        </div>
+                    )}
                 </div>
 
                 <div className={'md:hidden'}>
