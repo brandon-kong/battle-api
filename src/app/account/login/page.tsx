@@ -14,7 +14,6 @@ export default function Login() {
     useForm<FormValues>();
     
     const onSubmit: SubmitHandler<FormValues> = async (e) => {
-        console.log('submitted');
 
         const res = await signIn('email-password', {
             email: e.email,
@@ -26,10 +25,8 @@ export default function Login() {
         alert(JSON.stringify(res));
 
         if (!res?.ok) {
-            console.error('Failed to sign in:', res?.error);
         }
         else {
-            alert('Logged in!');
         }
     };
 

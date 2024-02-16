@@ -12,7 +12,6 @@ type InputProps = BaseProps & {
     variant?: Variant;
     href?: string;
     size?: Size;
-    ref?: any;
 };
 
 const baseClass = "placeholder:text-gray-700 px-6 flex gap-2 items-center justify-center font-mono text-sm text-black font-normal py-2 rounded transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50";
@@ -78,10 +77,10 @@ type FormInputProps = InputProps & {
 };
 
 const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>((props, ref) => {
-    const { register, name, ...rest }: FormInputProps = props;
+    const { register, ...rest }: FormInputProps = props;
     
     return (
-        <Input {...rest} ref={register} name={name} />
+        <Input {...rest} ref={register} />
     )
 });
 

@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <main className="flex place-content-center items-center bg-gradient-to-t from-blue-100 to-blue-50 pt-navbar-2x xl:pt-navbar">
             <div
-            className={'max-w-content-xs md:max-w-content px-content-padding-x xl:px-0 h-min xl:h-[720px] w-full flex flex-col place-content-end'}
+            className={'max-w-content-xs md:max-w-content px-content-padding-x h-min xl:h-[720px] w-full flex flex-col place-content-end'}
             >
                 
                 <div
