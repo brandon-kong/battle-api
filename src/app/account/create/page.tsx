@@ -1,8 +1,10 @@
 'use client';
 
-import { Button, Typography, FormInput } from "@/components";
+import { Button, Typography, FormInput, Input } from "@/components";
 import Image from "next/image";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type FormValues = {
     firstName: string;
@@ -13,11 +15,26 @@ type FormValues = {
 };
 
 export default function Register() {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = 
     useForm<FormValues>();
     
-    const onSubmit: SubmitHandler<FormValues> = (e) => {
+    const onSubmit: SubmitHandler<FormValues> = async (e) => {
         console.log('submitted');
+
+        const res = await signIn('email-password', {
+            email: e.email,
+            password: e.password,
+            callbackUrl: `${window.location.origin}/dashboard`,
+            redirect: false,
+        })
+
+        if (!res?.ok) {
+            console.error('Failed to sign in:', res?.error);
+        }
+        else {
+            router.push('/');
+        }
     };
 
     return (
@@ -39,22 +56,22 @@ export default function Register() {
 
                     <form onSubmit={handleSubmit(onSubmit)} className={'flex flex-col gap-4 mt-8'}>
                         <div className={'flex gap-4 w-full'}>
-                            <FormInput 
+                            <Input 
                             variant={'solid'} 
                             placeholder={'First Name'} 
                             {...register("firstName")} 
                             className={'w-full'}
                             />
-                            <FormInput 
+                            <Input 
                             variant={'solid'} 
                             placeholder={'Last Name'} 
                             {...register("lastName")} 
                             className={'w-full'}
                             />
                         </div>
-                        <FormInput variant={'solid'} placeholder={'Email'} {...register("email")} />
-                        <FormInput variant={'solid'} placeholder={'Password'} type={'password'} {...register("password")} />
-                        <FormInput variant={'solid'} placeholder={'Confirm Password'} type={'password'} {...register("confirmPassword")} />
+                        <Input variant={'solid'} placeholder={'Email'} {...register("email")} />
+                        <Input variant={'solid'} placeholder={'Password'} type={'password'} {...register("password")} />
+                        <Input variant={'solid'} placeholder={'Confirm Password'} type={'password'} {...register("confirmPassword")} />
                         <Button variant="primary">Create account</Button>
                         
                         <div

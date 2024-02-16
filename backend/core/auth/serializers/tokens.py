@@ -9,5 +9,7 @@ class TokenObtainPairSerializer(DRFSJ_TokenObtainPairSerializer):
 
         token['user_implicit_id'] = str(user.implicit_id)
         token['email'] = user.email
+        token['first_name'] = user.first_name
+        token['last_name'] = user.last_name
 
         return token
