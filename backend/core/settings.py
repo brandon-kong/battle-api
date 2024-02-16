@@ -186,7 +186,8 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY,
     'ALGORITHM': 'HS256',
     'ROTATE_REFRESH_TOKENS': True,
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
 # All Auth
@@ -204,7 +205,11 @@ LOGIN_REDIRECT_URL = '/'
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'auth',
-    'JWT_AUTH_REFRESH_COOKIE': 'refresh',
+    'JWT_AUTH_REFRESH_COOKIE': None,
+
+    'JWT_AUTH_SECURE': True,
+    'JWT_AUTH_HTTPONLY': False,
+    'JWT_AUTH_SAMESITE': 'None',
 
     'LOGIN_SERIALIZER': 'core.user.serializers.login.UserLoginSerializer',
     'REGISTER_SERIALIZER': 'core.user.serializers.register.UserRegisterSerializer',

@@ -10,9 +10,7 @@ type BaseProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>
 
 type InputProps = BaseProps & {
     variant?: Variant;
-    href?: string;
     size?: Size;
-    ref?: any;
 };
 
 const baseClass = "placeholder:text-gray-700 px-6 flex gap-2 items-center justify-center font-mono text-sm text-black font-normal py-2 rounded transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50";
@@ -41,12 +39,11 @@ type Size = keyof typeof sizeClass;
 type Variant = keyof typeof baseVariantClass;
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-    const { variant = 'solid', size = 'md', href, children, className, ...rest }: InputProps = props;
+    const { variant = 'solid', size = 'md', className, ...rest }: InputProps = props;
     const Component = baseVariantClass[variant].type as keyof JSX.IntrinsicElements | React.ComponentType<any>;
     const variantClass = baseVariantClass[variant].className;
     const sizeVariantClass = sizeClass[size];
     
-    console.log(rest)
     const classNames = cn(
         baseClass,
         sizeVariantClass,
@@ -54,19 +51,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         className,
     );
 
-    if (href) return (
-        <Link
-        href={href}
-        className={classNames}
-        >
-            {children}
-        </Link>
-    )
+    console.log(props)
 
     return (
-        <Component className={classNames} {...rest}>
-            {children}
-        </Component>
+        <input className={classNames} ref={ref} {...rest}/>
     )
 });
 

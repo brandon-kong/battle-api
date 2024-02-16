@@ -3,6 +3,7 @@
 import { Button, Typography, FormInput, Input } from "@/components";
 import { signIn } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 type FormValues = {
     email: string;
@@ -10,6 +11,7 @@ type FormValues = {
 };
 
 export default function Login() {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = 
     useForm<FormValues>();
     
@@ -23,13 +25,11 @@ export default function Login() {
             redirect: false,
         })
 
-        alert(JSON.stringify(res));
-
         if (!res?.ok) {
             console.error('Failed to sign in:', res?.error);
         }
         else {
-            alert('Logged in!');
+            router.push('/');
         }
     };
 
