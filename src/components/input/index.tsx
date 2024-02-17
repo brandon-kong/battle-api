@@ -29,8 +29,8 @@ const baseVariantClass = {
 const sizeClass = {
     "xs": "h-8",
     "sm": "h-10",
-    "md": "h-11",
-    "lg": "text-lg h-12 px-8",
+    "md": "h-16",
+    "lg": "text-md h-12 px-8",
     "icon": "h-10 w-10 p-2"
 }
 

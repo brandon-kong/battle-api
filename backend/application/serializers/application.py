@@ -4,7 +4,10 @@ from core.user.models import User
 
 from application.models import ( Application )
 
+from .endpoint import EndpointSerializer
+
 class ApplicationSerializer(ModelSerializer):
+    endpoints = EndpointSerializer(many=True)
     class Meta:
         model = Application
         fields = [
@@ -13,4 +16,9 @@ class ApplicationSerializer(ModelSerializer):
             'description',
             'created_at',
             'updated_at',
+
+            'base_url',
+            'endpoints',
         ]
+
+    

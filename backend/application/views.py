@@ -15,3 +15,11 @@ class ApplicationsUserView(APIView):
         applications = Application.objects.filter(user=request.user)
         serializer = ApplicationSerializer(applications, many=True)
         return Response(serializer.data)
+
+class TestView(APIView):
+    """
+    Test view
+    """
+        
+    def get(self, request):
+        return Response({'message': 'Hello, world!'})

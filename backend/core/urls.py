@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(prefix + 'auth/', include('dj_rest_auth.urls')),
     path(prefix + 'auth/registration/', include('dj_rest_auth.registration.urls')),
-    path(prefix + 'application/', include('application.urls')),
+    path(prefix + 'applications/', include('application.urls')),
 
     # Local apps
 ]

@@ -27,7 +27,7 @@ const baseVariantClass = {
         type: "h3"
     },
     "h4": {
-        className: "font-sans text-2xl font-semibold tracking-tight leading-normal",
+        className: "font-sans text-2xl font-semibold tracking-normal leading-snug",
         type: "h4"
     },
     "h5": {

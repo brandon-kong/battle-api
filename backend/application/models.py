@@ -30,7 +30,7 @@ class Application(models.Model):
 class Endpoint(models.Model):
     id = models.AutoField(primary_key=True)
 
-    application = models.ForeignKey(Application, on_delete=models.CASCADE)
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='endpoints')
     name = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
