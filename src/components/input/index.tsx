@@ -40,7 +40,6 @@ type Variant = keyof typeof baseVariantClass;
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const { variant = 'solid', size = 'md', className, ...rest }: InputProps = props;
-    const Component = baseVariantClass[variant].type as keyof JSX.IntrinsicElements | React.ComponentType<any>;
     const variantClass = baseVariantClass[variant].className;
     const sizeVariantClass = sizeClass[size];
     
@@ -50,8 +49,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         variantClass,
         className,
     );
-
-    console.log(props)
 
     return (
         <input className={classNames} ref={ref} {...rest}/>

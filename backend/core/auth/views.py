@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from core.user.serializers.create import UserCreationSerializer
+from core.user.serializers.register import UserRegisterSerializer
 
 class UserCreateView(APIView):
     """
@@ -11,14 +11,14 @@ class UserCreateView(APIView):
     - last name 
     - password
     """
-    serializer_class = UserCreationSerializer
+    serializer_class = UserRegisterSerializer
 
     def post(self, request):
         """
         Create user
         """
 
-        serializer = UserCreationSerializer(data=request.data)
+        serializer = UserRegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 

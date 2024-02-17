@@ -134,7 +134,6 @@ const handler: NextAuthOptions = {
             if (verifyData.success != null && verifyData.success === false) {
                 // refresh token
 
-                console.log('refreshing token');
                 const refreshRes = await fetch('http://127.0.0.1:8000/api/v1/auth/token/refresh/', {
                     method: 'POST',
                     headers: {

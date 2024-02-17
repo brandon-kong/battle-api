@@ -34,6 +34,7 @@ SITE_ID = 1
 
 INSTALLED_APPS = [
     # Local apps
+    'application',
     'core.user',
     'core.auth',
 
